@@ -1,0 +1,8 @@
+<?
+
+{
+    SetValueBoolean(30072, true);
+    @$Datei = file_get_contents("http://10.10.10.86/cm?cmnd=Power%20On", true, NULL, 0,0);
+}
+;
+?>
