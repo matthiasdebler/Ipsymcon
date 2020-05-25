@@ -1,0 +1,20 @@
+<?
+// Luftfeuchte Bad Keller DS2438 Temperature, A/D.
+// HID 4000 Sensor Mess-Spannung [VAD]
+
+//Start writing your scripts between the brackets
+
+$Vad = GetValue(59511);
+$Vdd = GetValue(38142);
+$temp = GetValue(20979);
+$Srh = ($Vad - 0.958062) * 30.680;
+$Srh = $Srh / ((1.0305 + (0.000044 * $temp) - (0.0000011 * pow($temp,2))));
+echo "Feuchte: $Srh %rh Temp.Comp.\n";
+SetValue(50564, $Srh);
+
+
+
+
+
+
+?>
