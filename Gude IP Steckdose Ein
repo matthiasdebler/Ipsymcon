@@ -1,0 +1,2 @@
+<?php $on = file_get_contents("http://172.20.0.106/SWITCH.CGI?s1=1");
+ SetValue(32814,1);
