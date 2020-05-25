@@ -1,0 +1,8 @@
+<?
+
+{
+    SetValueBoolean(30072, false);
+    @$Datei = file_get_contents("http://10.10.10.86/cm?cmnd=Power%20Off", false, NULL, 0,0);
+}
+;
+?>
