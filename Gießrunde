@@ -1,0 +1,47 @@
+
+<?
+{
+    
+	
+    set_time_limit(0);
+
+    Sleep(10); // Zeitschleife  min
+
+
+    //*****************************************************************************************************************
+    // Hauswasserwerk einschalten 
+
+    
+    SetValue(56435,1);
+    $on = file_get_contents("http://172.20.0.107/SWITCH.CGI?s1=1");
+
+    Sleep(10); // Zeitschleife  min
+
+    //*****************************************************************************************************************
+    // Ventil 6 einschalten
+	
+	SetValueBoolean(53566, false);
+    @$Datei = file_get_contents("http://10.10.10.96/cm?cmnd=Power%20On", false, NULL, 0,0);
+	
+	Sleep(240); // Zeitschleife  min 
+	
+	
+    //*****************************************************************************************************************
+    // Ventil 6  ausschalten
+	
+    SetValueBoolean(53566, true);
+    @$Datei = file_get_contents("http://10.10.10.96/cm?cmnd=Power%20Off", true, NULL, 0,0);
+	
+	Sleep(10); // Zeitschleife  min 
+	
+    
+    
+    //*****************************************************************************************************************
+    // Hauswasserwerk ausschalten
+
+    SetValue(56435,0);
+    $on = file_get_contents("http://172.20.0.107/SWITCH.CGI?s1=0");
+    
+
+};
+?>
